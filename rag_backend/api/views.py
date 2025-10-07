@@ -12,7 +12,6 @@ class QueryAPIView(APIView):
             question = serializer.validated_data['question']
 
             try:
-                # Call your RAG pipeline
                 answer = rag_simple(question, rag_retriever, llm)
                 return Response({'answer': answer}, status=status.HTTP_200_OK)
 
